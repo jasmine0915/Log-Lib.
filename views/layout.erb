@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>LOG LIB.</title>
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+</head>  
+<body>
+  
+  <header>
+    <% if session[:user] %>
+      <div>
+        <a href="/library">Library</a>
+      </div>
+      
+      <div>
+        <a href="/likeit">Like it!!</a>
+      </div>
+      
+      <div>
+        <a href="/createbook">Create Book</a>
+      </div>
+      
+      <div>
+        <a href="/signout">Signout</a>
+      </div>
+      
+    <% end %>    
+  </header>
+  
+  <%= yield %>
+
+</body>
+</html>

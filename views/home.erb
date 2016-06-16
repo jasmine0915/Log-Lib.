@@ -1,0 +1,17 @@
+<!--  
+  <script>
+    $("#url").change(function(){
+      $get("/api/site", { url: $(this).val() }, function(data){
+        $("#title").val(data.title);
+      });
+    })
+  </script>
+-->
+
+<ul>
+
+  <% @books.each do |book| %>
+    <li><p><%= book.book_title %></p></li>
+  <% end %>
+
+</ul>
