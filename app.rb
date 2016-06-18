@@ -5,6 +5,7 @@ require 'open-uri'
 require "sinatra/json"
 require './models/user.rb'
 require './models/book.rb'
+require './models/content.rb'
 
 enable :sessions
 
@@ -64,21 +65,47 @@ end
 
 get '/home' do
   if session[:user]
-    @books = Book.where(user_id: session[:user])
+    @user_id = session[:user]
+    @books = Book.where(user_id: @user_id)
+#    @contents = Content.where(user_id: @user_id, book_id:)
     erb :home
   else
     redirect '/'
   end
 end
 
+get '/create_book' do
+  erb :create_book
+end
+
 post '/createbook' do
+  @booktitle = params[:book_title]
+  @userid = session[:user]
   Book.create(
-    book_title: params[:book_title],
-    user_id: session[:user]
+    book_title: @booktitle,
+    user_id: @userid
     )
+    
+  @bookinfo = Book.find_by(book_title: @booktitle, user_id: @userid)
   
+=begin
+  @urls = params[:url]
+  @url_titles = params[:url_title]
+  @contents = params[:content]
+=end
+  
+  Content.create(
+    user_id: @userid,
+    book_id: @bookinfo.id,
+    url: params[:url],
+    url_title: params[:url_title],
+    content: params[:content]
+    )
+
   redirect '/home'
 end
+
+
 
 =begin
 get '/api/site' do

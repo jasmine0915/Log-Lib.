@@ -5,28 +5,33 @@
   <title>LOG LIB.</title>
   <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
   <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script type="text/javascript" src="/assets/js/create_book.js"></script>
 </head>  
 <body>
   
-  <header>
-    <% if session[:user] %>
-      <div>
-        <a href="/library">Library</a>
-      </div>
+  <header style="background-color: #dddddd;" class="container">
+    <nav class="row">
+      <% if session[:user] %>
       
-      <div>
-        <a href="/likeit">Like it!!</a>
-      </div>
-      
-      <div>
-        <a href="/createbook">Create Book</a>
-      </div>
-      
-      <div>
-        <a href="/signout">Signout</a>
-      </div>
-      
-    <% end %>    
+        <div class="col-md-3">
+          <a href="/library">Library</a>
+        </div>
+        
+        <div class="col-md-3">
+          <a href="/likeit">Like it!!</a>
+        </div>
+        
+        <div class="col-md-3">
+          <a href="/create_book">Create Book</a>
+        </div>
+        
+        <div class="col-md-3">
+          <a href="/signout">Signout</a>
+        </div>
+        
+      <% end %>      
+    </nav>
+        
   </header>
   
   <%= yield %>
