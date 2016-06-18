@@ -5,12 +5,12 @@
 
   <div id="contents">
     <label for="url">URL :</label><br>
-    <input type="url" name="url"><br>
+    <input type="url" name="url[]"><br>
     <label for="url_title">URL TILTE :</label><br>
-    <input type="title" name="url_title"><br><br>
+    <input type="title" name="url_title[]"><br><br>
 
     <label for="descripion">CONTENT :</label><br>
-    <textarea name="content" rows=4 cols=60></textarea><br>
+    <textarea name="content[]" rows=4 cols=60></textarea><br>
   </div>
 
   <input type="submit" value="作成" name="create" class="btn btn-primary">
@@ -19,6 +19,5 @@
 
 <footer>
   <label for="add">ADD :</label>
-  <input type="button" value="URL" name="url_add" id="url_add" class="btn btn-primary">
-  <input type="button" value="DESCRIPTION" name="desc_add" id="desc_add" class="btn btn-primary">
+  <input type="button" value="URL_ADD" name="url_add" id="url_add" class="btn btn-primary">
 </footer>
